@@ -1,17 +1,16 @@
-const express =require("express");
-const bodyParser=require("body-parser");
-const { json } = require("body-parser");
-const rezervasyonRoutes=require('./routers/rezervasyonRoutes');
+const express= require('express');
+const bodyParser=require('body-parser');
+const router=require('./router/index_router');
 
-
-const app =express();
-const PORT=process.env.PORT||4111;
+const app=express();
+const PORT=process.env.PORT||4422;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.use("/rezervasyon",rezervasyonRoutes);
+app.use('/',router);
 
 
 
-app.listen(PORT,console.log("Server don start for port:"+PORT));
+
+app.listen(PORT,console.log("Server start for port: "+PORT));
